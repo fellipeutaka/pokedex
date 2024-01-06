@@ -1,0 +1,14 @@
+{
+  "cSpell.words": [
+    "codegen",
+    "lucide",
+    "mizuhara",
+    "Poké",
+    "Pokeball",
+    "Pokédex",
+    "tanstack",
+    "usehooks"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2022",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -16,11 +16,21 @@
     "plugins": [
       {
         "name": "next"
+      },
+      {
+        "name": "@0no-co/graphqlsp",
+        "schema": "./schema.graphql",
+        "disableTypegen": true,
+        "templateIsCallExpression": true,
+        "template": "graphql"
       }
     ],
+    "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
-    }
+    },
+
+    "verbatimModuleSyntax": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

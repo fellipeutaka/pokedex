@@ -1,3 +1,14 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "extends": [
+    "@fellipeutaka/eslint-config/next",
+    "@fellipeutaka/eslint-config/tailwind"
+  ],
+  "overrides": [
+    {
+      "files": ["*.graphql"],
+      "extends": "plugin:@graphql-eslint/schema-recommended"
+    }
+  ],
+  "ignorePatterns": ["src/graphql/gql"]
 }
