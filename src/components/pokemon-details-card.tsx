@@ -59,7 +59,7 @@ export function PokemonDetailsCard({ pokemon }: PokemonDetailsCardProps) {
   }
 
   return (
-    <section className="flex max-w-lg flex-col rounded-lg border px-6 py-4 motion-safe:animate-fade-right motion-safe:animate-delay-150">
+    <section className="flex max-w-full flex-col rounded-lg border px-6 py-4 motion-safe:animate-fade-right motion-safe:animate-delay-150 md:max-w-lg">
       <div className="grid grid-cols-2">
         <div>
           <p className="text-sm text-muted-foreground">

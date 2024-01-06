@@ -69,7 +69,7 @@ export function PokemonDetails({ pokemon }: PokemonDetailsProps) {
         {pokemon.species?.evolutionChain?.species.length === 1 && (
           <p className="text-muted-foreground">This Pokémon does not evolve.</p>
         )}
-        <div className="mt-4 flex items-center gap-8">
+        <div className="mt-4 flex max-w-[calc(100vw-4rem)] items-center gap-8 overflow-x-auto py-4 sm:py-0">
           {pokemon.species?.evolutionChain?.species.map(
             (species, index, { length }) => (
               <Fragment key={species?.id}>

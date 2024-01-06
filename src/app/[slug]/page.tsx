@@ -38,7 +38,7 @@ export default async function Page({ params: { slug } }: PageProps) {
         </Link>
       </Button>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid gap-8 md:grid-cols-2">
         <PokemonDetailsCard pokemon={pokemon} />
         <PokemonDetails pokemon={pokemon} />
       </div>
