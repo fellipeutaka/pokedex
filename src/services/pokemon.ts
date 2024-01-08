@@ -36,13 +36,9 @@ export async function getPokemon({
 }: GetPokemonProps): Promise<PokemonQuery["pokemon"][0] | null> {
   const {
     pokemon: [pokemon],
-  } = await request(
-    "https://beta.pokeapi.co/graphql/v1beta",
-    PokemonQueryDocument,
-    {
-      name,
-    },
-  );
+  } = await request(baseUrl, PokemonQueryDocument, {
+    name,
+  });
 
   return pokemon || null;
 }
