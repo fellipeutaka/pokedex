@@ -13,6 +13,7 @@ import {
   getPokemonCries,
   getPokemonSprite,
   updateURLParams,
+  type PokemonType,
 } from "~/lib/utils";
 import type { getPokemon } from "~/services/pokemon";
 
@@ -60,12 +61,12 @@ export function PokemonDetailsCard({ pokemon }: PokemonDetailsCardProps) {
 
   return (
     <section className="flex max-w-full flex-col rounded-lg border px-6 py-4 motion-safe:animate-fade-right motion-safe:animate-delay-150 md:max-w-lg">
-      <div className="grid grid-cols-2">
+      <div className="grid sm:grid-cols-2">
         <div>
           <p className="text-sm text-muted-foreground">
             #{String(pokemon.id).padStart(3, "0")}
           </p>
-          <h1 className="text-4xl font-extrabold capitalize tracking-tight lg:text-5xl">
+          <h1 className="text-3xl font-extrabold capitalize tracking-tight sm:text-4xl lg:text-5xl">
             {pokemon.name}
           </h1>
           <div className="my-2 flex items-center gap-2">
@@ -73,14 +74,14 @@ export function PokemonDetailsCard({ pokemon }: PokemonDetailsCardProps) {
               <Badge
                 className="capitalize"
                 key={type.type?.name}
-                type={type.type?.name as never}
+                type={type.type?.name as PokemonType}
               >
                 {type.type?.name}
               </Badge>
             ))}
           </div>
         </div>
-        <div className="flex flex-col items-end gap-2">
+        <div className="flex flex-col gap-2 sm:items-end">
           <div className="flex items-center gap-2">
             <Label htmlFor="shiny">Shiny</Label>
             <Switch
@@ -95,7 +96,7 @@ export function PokemonDetailsCard({ pokemon }: PokemonDetailsCardProps) {
                 <Icons.Volume2 className="h-4 w-4" />
               </Button>
             </Tooltip.Trigger>
-            <Tooltip.Content sideOffset={4}>Play cry</Tooltip.Content>
+            <Tooltip.Content>Play cry</Tooltip.Content>
           </Tooltip>
         </div>
       </div>
@@ -115,14 +116,14 @@ export function PokemonDetailsCard({ pokemon }: PokemonDetailsCardProps) {
       <div className="flex h-20 items-center space-x-4 text-sm">
         <div className="flex flex-col">
           <p>Height</p>
-          <p className="text-3xl font-semibold tracking-tight">
+          <p className="text-xl font-semibold tracking-tight sm:text-3xl">
             <CountUp isCounting end={(pokemon.height ?? 0) / 10} /> m
           </p>
         </div>
         <Separator orientation="vertical" />
         <div className="flex flex-col">
           <p>Weight</p>
-          <p className="text-3xl font-semibold tracking-tight">
+          <p className="text-xl font-semibold tracking-tight sm:text-3xl">
             <CountUp isCounting end={(pokemon.weight ?? 0) / 10} /> kg
           </p>
         </div>

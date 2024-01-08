@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import type { PokemonListQuery } from "~/graphql/gql/graphql";
-import { getPokemonSprite } from "~/lib/utils";
+import { getPokemonSprite, type PokemonType } from "~/lib/utils";
 
 import { Icons } from "./icons";
 import { Badge } from "./ui/badge";
@@ -33,7 +33,7 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
         {pokemon.pokemons[0].types.map(({ type }) => (
           <Badge
             key={type?.name}
-            type={type?.name as never}
+            type={type?.name as PokemonType}
             className="capitalize"
           >
             {type!.name}

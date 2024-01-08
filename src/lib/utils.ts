@@ -463,34 +463,21 @@ type TypeDamageFactor = {
   damageFactor: number;
 };
 
-const getTypeDamageFactors = (
-  attackingTypes: PokemonType[],
-  defendingType: PokemonType
-): TypeDamageFactor[] => {
-  const result: TypeDamageFactor[] = [];
-
-  for (const attackingType of attackingTypes) {
-    const damageFactor = typeChart[attackingType][defendingType];
-    result.push({ type: defendingType, damageFactor });
-  }
-
-  return result;
-};
-
 export const getPokemonWeakness = (
   types: PokemonType[]
 ): TypeDamageFactor[] => {
-  const result: TypeDamageFactor[] = [];
+  const weaknesses = types.reduce<TypeDamageFactor[]>((acc, type) => {
+    const typeWeaknesses = Object.entries(typeChart[type])
+      .filter(([, damageFactor]) => damageFactor > 100)
+      .map(([weaknessType, damageFactor]) => ({
+        type: weaknessType as PokemonType,
+        damageFactor,
+      }));
 
-  for (const defendingType of types) {
-    const effectiveTypes = types.filter(
-      (attackingType) => attackingType !== defendingType
-    );
-    const damageFactors = getTypeDamageFactors(effectiveTypes, defendingType);
-    result.push(...damageFactors);
-  }
+    return [...acc, ...typeWeaknesses];
+  }, []);
 
-  return result;
+  return weaknesses;
 };
 
 export function getPokemonSprite(id: number, isShiny = false) {

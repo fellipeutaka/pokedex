@@ -44,7 +44,7 @@ export function PokemonDetails({ pokemon }: PokemonDetailsProps) {
       </div>
       <div className="motion-safe:animate-fade motion-safe:animate-delay-700">
         <h3 className="text-2xl font-semibold tracking-tight">Weakness</h3>
-        <div className="mt-2 flex items-center gap-2">
+        <div className="mt-2 flex flex-wrap items-center gap-2">
           {getPokemonWeakness(
             pokemon.types.map(({ type }) => type?.name as PokemonType)
           )?.map(({ type, damageFactor }) => (
@@ -92,7 +92,7 @@ export function PokemonDetails({ pokemon }: PokemonDetailsProps) {
                       <Badge
                         className="capitalize"
                         key={type?.name}
-                        type={type?.name as never}
+                        type={type?.name as PokemonType}
                       >
                         {type?.name}
                       </Badge>

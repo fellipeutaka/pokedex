@@ -20,7 +20,8 @@ export const metadata: Metadata = {
   keywords: [
     "Next.js",
     "React",
-    "Tailwind CSS",
+    "Tailwind",
+    "TailwindCSS",
     "TypeScript",
     "Pokémon",
     "Pokédex",
