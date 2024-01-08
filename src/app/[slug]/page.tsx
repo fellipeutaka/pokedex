@@ -15,9 +15,9 @@ type PageProps = {
   };
 };
 
-export const generateMetadata: GenerateMetadata<{
-  params: { slug: string };
-}> = async ({ params: { slug } }) => {
+export const generateMetadata: GenerateMetadata<PageProps> = async ({
+  params: { slug },
+}) => {
   return {
     title: capitalize(slug),
   };

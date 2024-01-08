@@ -1,20 +1,10 @@
 "use client";
 
-import { useState } from "react";
-
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 import { CountUp, useCountUp } from "use-count-up";
-import useSound from "use-sound";
-import { z } from "zod";
 
-import {
-  capitalize,
-  getPokemonCries,
-  getPokemonSprite,
-  updateURLParams,
-  type PokemonType,
-} from "~/lib/utils";
+import { usePokemonDetailsCard } from "~/hooks/use-pokemon-details-card";
+import { capitalize, getPokemonSprite, type PokemonType } from "~/lib/utils";
 import type { getPokemon } from "~/services/pokemon";
 
 import { Icons } from "./icons";
@@ -26,38 +16,12 @@ import { Separator } from "./ui/separator";
 import { Switch } from "./ui/switch";
 import { Tooltip } from "./ui/tooltip";
 
-const searchParamsSchema = z.object({
-  shiny: z
-    .string()
-    .nullable()
-    .transform((value) => value === "true"),
-});
-
 type PokemonDetailsCardProps = {
   pokemon: NonNullable<Awaited<ReturnType<typeof getPokemon>>>;
 };
 
 export function PokemonDetailsCard({ pokemon }: PokemonDetailsCardProps) {
-  const searchParams = useSearchParams();
-  const parsedSearchParams = searchParamsSchema.parse({
-    shiny: searchParams.get("shiny"),
-  });
-  const [shiny, setShiny] = useState(parsedSearchParams.shiny);
-  const [play] = useSound(getPokemonCries(pokemon.id), {
-    volume: 0.5,
-  });
-
-  function onShinyChange(checked: boolean) {
-    updateURLParams({
-      currentParams: searchParams,
-      key: "shiny",
-      value: String(checked),
-      condition: !checked,
-      path: `/${pokemon.name}`,
-    });
-
-    setShiny(checked);
-  }
+  const { shiny, onShinyChange, play } = usePokemonDetailsCard({ pokemon });
 
   return (
     <section className="flex max-w-full flex-col rounded-lg border px-6 py-4 motion-safe:animate-fade-right motion-safe:animate-delay-150 md:max-w-lg">
