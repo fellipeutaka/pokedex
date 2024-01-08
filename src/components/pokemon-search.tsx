@@ -21,7 +21,7 @@ export function PokemonSearch({ query, onChange }: PokemonSearchProps) {
           autoComplete="off"
         />
         <TextField.Slot>
-          <Icons.Search className="h-4 w-4 text-foreground" />
+          <Icons.Search className="size-4 text-foreground" />
         </TextField.Slot>
       </TextField.Root>
     </div>

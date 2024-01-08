@@ -6,7 +6,7 @@ import { getPokemonSprite, type PokemonType } from "~/lib/utils";
 
 import { Icons } from "./icons";
 import { Badge } from "./ui/badge";
-import { ButtonStyles } from "./ui/button";
+import { Button } from "./ui/button";
 
 type PokemonCardProps = {
   pokemon: PokemonListQuery["list"][number];
@@ -40,9 +40,11 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
           </Badge>
         ))}
       </div>
-      <Link className={ButtonStyles()} href={`/${pokemon.name}`}>
-        <Icons.Info className="mr-2 h-4 w-4" /> View Details
-      </Link>
+      <Button asChild>
+        <Link href={`/${pokemon.name}`}>
+          <Icons.Info className="mr-2 size-4" /> View Details
+        </Link>
+      </Button>
     </div>
   );
 }

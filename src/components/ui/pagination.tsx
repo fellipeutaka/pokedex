@@ -94,7 +94,7 @@ function PaginationPrevious({
       className={cn("gap-1 pl-2.5", className)}
       {...props}
     >
-      <Icons.ChevronLeft className="h-4 w-4" />
+      <Icons.ChevronLeft className="size-4" />
       <span>Previous</span>
     </PaginationLink>
   );
@@ -113,7 +113,7 @@ function PaginationNext({
       {...props}
     >
       <span>Next</span>
-      <Icons.ChevronRight className="h-4 w-4" />
+      <Icons.ChevronRight className="size-4" />
     </PaginationLink>
   );
 }
@@ -128,7 +128,7 @@ function PaginationEllipsis({
       className={cn("flex h-9 w-9 items-center justify-center", className)}
       {...props}
     >
-      <Icons.MoreHorizontal className="h-4 w-4 opacity-50" />
+      <Icons.MoreHorizontal className="size-4 opacity-50" />
       <span className="sr-only">More pages</span>
     </span>
   );

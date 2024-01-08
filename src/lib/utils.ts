@@ -141,7 +141,7 @@ const typeChart: Record<PokemonType, Record<PokemonType, number>> = {
     fire: 50,
     water: 50,
     electric: 200,
-    grass: 100,
+    grass: 200,
     ice: 50,
     fighting: 100,
     poison: 100,
@@ -477,13 +477,43 @@ export const getPokemonWeakness = (
     return [...acc, ...typeWeaknesses];
   }, []);
 
-  return weaknesses;
+  const uniqueWeaknesses = weaknesses.reduce<TypeDamageFactor[]>(
+    (acc, weakness) => {
+      const existingWeakness = acc.find(({ type }) => type === weakness.type);
+
+      if (existingWeakness) {
+        existingWeakness.damageFactor += weakness.damageFactor;
+        return acc;
+      }
+
+      return [...acc, weakness];
+    },
+    []
+  );
+
+  const filteredWeaknesses = uniqueWeaknesses.filter(
+    ({ type, damageFactor }) => {
+      const combinedDamageFactor = types.reduce(
+        (total, pokemonType) => total * (typeChart[pokemonType][type] / 10),
+        damageFactor / 10
+      );
+
+      return combinedDamageFactor > 1;
+    }
+  );
+
+  return filteredWeaknesses.filter(({ type }) =>
+    types.every((pokemonType) => typeChart[pokemonType][type] > 50)
+  );
 };
+
+const pokemonSpriteBaseUrl =
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon";
 
 export function getPokemonSprite(id: number, isShiny = false) {
   return isShiny
-    ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png`
-    : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+    ? `${pokemonSpriteBaseUrl}/shiny/${id}.png`
+    : `${pokemonSpriteBaseUrl}/${id}.png`;
 }
 
 export function getPokemonCries(id: number) {

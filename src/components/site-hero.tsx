@@ -27,7 +27,7 @@ export function SiteHero() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Icons.Github className="mr-2 h-4 w-4" />
+            <Icons.Github className="mr-2 size-4" />
             GitHub
           </a>
         </Button>

@@ -38,7 +38,6 @@ export function PokemonPagination({
               href={{
                 pathname: "/",
                 query: {
-                  page: 1,
                   ...(q && { q }),
                 },
               }}

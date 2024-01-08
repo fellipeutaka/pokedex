@@ -20,7 +20,7 @@ export default function NotFound() {
           asChild
         >
           <Link href="/">
-            <Icons.ChevronLeft className="h-4 w-4" /> Go back home
+            <Icons.ChevronLeft className="size-4" /> Go back home
           </Link>
         </Button>
       </div>

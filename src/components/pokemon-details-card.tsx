@@ -93,7 +93,7 @@ export function PokemonDetailsCard({ pokemon }: PokemonDetailsCardProps) {
           <Tooltip delayDuration={300}>
             <Tooltip.Trigger asChild>
               <Button size="icon" variant="outline" onClick={() => play()}>
-                <Icons.Volume2 className="h-4 w-4" />
+                <Icons.Volume2 className="size-4" />
               </Button>
             </Tooltip.Trigger>
             <Tooltip.Content>Play cry</Tooltip.Content>

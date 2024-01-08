@@ -17,7 +17,7 @@ import { PokemonPagination } from "./pokemon-pagination";
 import { PokemonPaginationSkeleton } from "./pokemon-pagination-skeleton";
 import { PokemonSearch } from "./pokemon-search";
 
-const searchParamsSchema = z.object({
+export const searchParamsSchema = z.object({
   q: z
     .string()
     .nullable()

@@ -34,7 +34,7 @@ export default async function Page({ params: { slug } }: PageProps) {
     <main className="container pt-16 lg:py-28">
       <Button className="mb-4 motion-safe:animate-fade-right" asChild>
         <Link href="/">
-          <Icons.ChevronLeft className="h-4 w-4" /> Back to home
+          <Icons.ChevronLeft className="size-4" /> Back to home
         </Link>
       </Button>
 

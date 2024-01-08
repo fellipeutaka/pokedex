@@ -19,7 +19,7 @@ export function PokemonSearchSkeleton() {
         />
         <div className={TextFieldStyles.Chrome()} />
         <div className={TextFieldStyles.Slot()}>
-          <Icons.Search className="h-4 w-4 text-foreground opacity-50" />
+          <Icons.Search className="size-4 text-foreground opacity-50" />
         </div>
       </div>
     </div>

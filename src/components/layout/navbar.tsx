@@ -23,7 +23,7 @@ export function Navbar() {
               size: "icon",
             })}
           >
-            <Icons.Github className="h-4 w-4" />
+            <Icons.Github className="size-4" />
             <span className="sr-only">GitHub</span>
           </Link>
           <Link
@@ -35,7 +35,7 @@ export function Navbar() {
               size: "icon",
             })}
           >
-            <Icons.Twitter className="h-4 w-4" />
+            <Icons.Twitter className="size-4" />
             <span className="sr-only">Twitter</span>
           </Link>
           <ModeToggle />

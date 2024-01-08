@@ -53,7 +53,7 @@ export function PokemonDetails({ pokemon }: PokemonDetailsProps) {
               {damageFactor > 200 && (
                 <Tooltip>
                   <Tooltip.Trigger asChild>
-                    <Icons.Alert className="ml-1 h-4 w-4" />
+                    <Icons.Alert className="ml-1 size-4" />
                   </Tooltip.Trigger>
                   <Tooltip.Content>
                     <p>Deals 4x damage</p>
@@ -69,7 +69,7 @@ export function PokemonDetails({ pokemon }: PokemonDetailsProps) {
         {pokemon.species?.evolutionChain?.species.length === 1 && (
           <p className="text-muted-foreground">This Pokémon does not evolve.</p>
         )}
-        <div className="mt-4 flex max-w-[calc(100vw-4rem)] items-center gap-8 overflow-x-auto py-4 sm:py-0">
+        <div className="mt-4 flex max-w-[calc(100vw-4rem)] items-center gap-4 overflow-x-auto py-4 sm:py-0">
           {pokemon.species?.evolutionChain?.species.map(
             (species, index, { length }) => (
               <Fragment key={species?.id}>
@@ -100,7 +100,7 @@ export function PokemonDetails({ pokemon }: PokemonDetailsProps) {
                   </div>
                 </Link>
                 {index !== length - 1 && (
-                  <Icons.ChevronRight className="h-6 w-6" />
+                  <Icons.ChevronRight className="size-6" />
                 )}
               </Fragment>
             )
