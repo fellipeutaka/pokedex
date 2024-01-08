@@ -1,3 +1,5 @@
+import million from "million/compiler";
+
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
@@ -20,4 +22,4 @@ const config = {
   },
 };
 
-export default config;
+export default million.next(config, { auto: { rsc: true } });

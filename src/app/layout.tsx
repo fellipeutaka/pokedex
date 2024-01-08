@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata, ServerRuntime, Viewport } from "next";
 import { Inter } from "next/font/google";
 
 import { Background } from "~/components/background";
@@ -59,6 +59,8 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
+
+export const runtime: ServerRuntime = "edge";
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
