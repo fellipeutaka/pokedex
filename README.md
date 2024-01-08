@@ -1,6 +1,6 @@
 # TO FIX
 
-- [] Pagination
+- [x] Pagination
 - [x] Suspense List
 - [] Pokémon Weakness
 - [x] Responsive
