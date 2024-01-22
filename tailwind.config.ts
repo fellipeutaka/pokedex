@@ -1,4 +1,4 @@
-import { createShadcnPreset } from "mizuhara/plugins";
+import { createShadcnPreset, imageRendering } from "mizuhara/plugins";
 import type { Config } from "tailwindcss";
 import animated from "tailwindcss-animated";
 
@@ -12,7 +12,7 @@ const config = {
       },
     },
   },
-  plugins: [animated],
+  plugins: [animated, imageRendering],
 } satisfies Config;
 
 export default config;

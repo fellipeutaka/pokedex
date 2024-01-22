@@ -74,7 +74,7 @@ export function PokemonDetailsCard({ pokemon }: PokemonDetailsCardProps) {
         width={256}
         height={256}
         priority
-        className="[image-rendering:_pixelated]"
+        className="rendering-pixelated"
         draggable={false}
       />
       <div className="flex h-20 items-center space-x-4 text-sm">

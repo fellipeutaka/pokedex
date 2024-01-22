@@ -20,7 +20,7 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
         alt={pokemon.name}
         width={128}
         height={128}
-        className="[image-rendering:_pixelated]"
+        className="rendering-pixelated"
         draggable={false}
       />
       <p className="text-sm text-muted-foreground">

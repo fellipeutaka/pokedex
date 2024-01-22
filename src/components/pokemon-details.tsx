@@ -82,7 +82,7 @@ export function PokemonDetails({ pokemon }: PokemonDetailsProps) {
                     alt={pokemon.name}
                     width={64}
                     height={64}
-                    className="self-center [image-rendering:_pixelated]"
+                    className="self-center rendering-pixelated"
                   />
                   <p className="text-center text-xl font-semibold capitalize leading-none tracking-tight">
                     {species.name}
